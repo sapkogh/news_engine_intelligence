@@ -15,8 +15,8 @@ Fetches articles from configured RSS feeds and generates:
 Clone the repository and open its folder:
 
 ```powershell
-git clone https://github.com/YOUR-USERNAME/news-intelligence-engine.git
-cd news-intelligence-engine
+git clone https://github.com/sapkogh/news_engine_intelligence.git
+cd news_engine_intelligence
 ```
 
 Install the Python dependency:
