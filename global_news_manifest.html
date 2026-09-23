@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Global News Intelligence</title>
+    <style>
+        :root {
+            --ink: #17212b;
+            --muted: #66727d;
+            --line: #d8e0e6;
+            --paper: #f4f6f7;
+            --accent: #c94b32;
+            --accent-dark: #8e2f20;
+        }
+        * { box-sizing: border-box; }
+        body { margin: 0; color: var(--ink); background: var(--paper); font: 16px/1.55 Georgia, serif; }
+        header { padding: 48px max(24px, calc((100% - 1180px) / 2)); color: #fff; background: #17212b; border-bottom: 6px solid var(--accent); }
+        header p { margin: 8px 0 0; color: #c8d1d8; font: 15px/1.4 Arial, sans-serif; }
+        h1 { margin: 0; font-size: clamp(2rem, 5vw, 4.5rem); line-height: .98; letter-spacing: 0; }
+        main { max-width: 1180px; margin: 0 auto; padding: 28px 24px 64px; }
+        .toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 24px; font-family: Arial, sans-serif; }
+        .count { margin-right: auto; color: var(--muted); font-size: 14px; }
+        select { min-width: 220px; padding: 11px 12px; color: var(--ink); background: #fff; border: 1px solid var(--line); border-radius: 4px; font: inherit; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 18px; }
+        .story { display: flex; flex-direction: column; min-height: 280px; padding: 22px; background: #fff; border: 1px solid var(--line); border-top: 4px solid var(--accent); box-shadow: 0 5px 16px rgba(23, 33, 43, .06); }
+        .story-meta, .story-footer { display: flex; justify-content: space-between; gap: 12px; color: var(--muted); font: 12px/1.35 Arial, sans-serif; }
+        .story-meta span:last-child { color: var(--accent-dark); font-weight: 700; text-align: right; }
+        h2 { margin: 14px 0 10px; font-size: 1.35rem; line-height: 1.15; }
+        h2 a { color: var(--ink); text-decoration: none; }
+        h2 a:hover { color: var(--accent); }
+        .story p { flex: 1; margin: 0 0 20px; color: #46515b; font-size: .98rem; }
+        .story-footer { align-items: end; padding-top: 15px; border-top: 1px solid var(--line); }
+        .tag { display: inline-block; margin: 0 0 0 5px; padding: 3px 7px; color: var(--accent-dark); background: #f9e5df; border-radius: 12px; font-size: 11px; }
+        .empty { padding: 40px; color: var(--muted); text-align: center; background: #fff; }
+        @media (max-width: 600px) { header { padding: 34px 20px; } main { padding: 22px 16px 48px; } .story-meta, .story-footer { align-items: flex-start; flex-direction: column; } .story-meta span:last-child { text-align: left; } }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Global News Intelligence</h1>
+        <p>33 stories collected from 11 sources</p>
+    </header>
+    <main>
+        <div class="toolbar">
+            <span class="count" id="visible-count">Showing 33 stories</span>
+            <label for="source-filter">Filter by source</label>
+            <select id="source-filter">
+                <option value="all">All sources</option>
+                    <option value="ANSA English">ANSA English</option>
+                    <option value="BBC News World">BBC News World</option>
+                    <option value="CBC News">CBC News</option>
+                    <option value="Deutsche Welle">Deutsche Welle</option>
+                    <option value="El Economista">El Economista</option>
+                    <option value="France 24">France 24</option>
+                    <option value="NAN">NAN</option>
+                    <option value="NPR">NPR</option>
+                    <option value="SABC News">SABC News</option>
+                    <option value="SBS News">SBS News</option>
+                    <option value="Yonhap News Agency">Yonhap News Agency</option>
+            </select>
+        </div>
+        <section class="grid" id="story-grid">
+
+            <article class="story" data-source="Yonhap News Agency">
+                <div class="story-meta">
+                    <span>South Korea</span>
+                    <span>Yonhap News Agency</span>
+                </div>
+                <h2><a href="https://en.yna.co.kr/view/AEN20260923000852315" target="_blank" rel="noopener noreferrer">(2nd LD) Lee vows efforts to help swiftly resume U.S.-N. Korea dialogue</a></h2>
+                <p>NEW YORK, Sept. 22 (Yonhap) -- South Korean President Lee Jae Myung on Tuesday r...</p>
+                <div class="story-footer">
+                    <time>Wed, 23 Sep 2026 06:08:15 +0900</time>
+                    <div><span class="tag">Headline</span></div>
+                </div>
+            </article>
+        
+            <article class="story" data-source="Yonhap News Agency">
+                <div class="story-meta">
+                    <span>South Korea</span>
+                    <span>Yonhap News Agency</span>
+                </div>
+                <h2><a href="https://en.yna.co.kr/view/AEN20260922009300320" target="_blank" rel="noopener noreferrer">Consumer sentiment rebounds in Sept. on eased market woes, sound economic data</a></h2>
+                <p>SEOUL, Sept. 23 (Yonhap) -- Consumer sentiment rebounded in September as the loc...</p>
+                <div class="story-footer">
+                    <time>Wed, 23 Sep 2026 06:00:08 +0900</time>
+                    <div><span class="tag">Headline</span></div>
+                </div>
+            </article>
+        
+            <article class="story" data-source="Yonhap News Agency">
+                <div class="story-meta">
+                    <span>South Korea</span>
+                    <span>Yonhap News Agency</span>
+                </div>
+                <h2><a href="https://en.yna.co.kr/view/AEN20260919003800320" target="_blank" rel="noopener noreferrer">(Asiad) S. Korean stars Oh Sang-uk, Hwang Sun-woo set for title bids at Asian Games</a></h2>
+                <p>NAGOYA, Japan, Sept. 23 (Yonhap) -- South Korean fencing and swimming stars Oh S...</p>
+                <div class="story-footer">
+                    <time>Wed, 23 Sep 2026 06:00:00 +0900</time>
+                    <div><span class="tag">Headline</span></div>
+                </div>
+            </article>
+        
+            <article class="story" data-source="NPR">
+                <div class="story-meta">
+                    <span>United States</span>
+                    <span>NPR</span>
+                </div>
+                <h2><a href="https://www.npr.org/2026/09/22/nx-s1-5977673/questions-remain-after-grand-jury-declines-indictment-in-nolan-wells-death" target="_blank" rel="noopener noreferrer">Questions remain after grand jury declines indictment in Nolan Wells&#x27; death</a></h2>
+                <p>The Black Mississippi teen&#x27;s family questions whether his race contributed to his July 4th death on an island off the Mississippi coast.</p>
+                <div class="story-footer">
+                    <time>Tue, 22 Sep 2026 17:47:51 -0400</time>
+                    <div><span class="tag">Technology</span></div>
+                </div>
+            </article>
+        
+            <article class="story" data-source="NPR">
+                <div class="story-meta">
+                    <span>United States</span>
+                    <span>NPR</span>
+                </div>
+                <h2><a href="https://www.npr.org/2026/09/22/nx-s1-5978033/braden-peters-clavicular-looksmaxxing-rape-accusation" target="_blank" rel="noopener noreferrer">Girl accuses Braden Peters, social media influencer known as &#x27;Clavicular,&#x27; of rape</a></h2>
+                <p>The allegations claim Braden Peters, also known as Clavicular, had non-consensual sex with the 17-year-old female victim after plying her with alcohol. Peters&#x27; representative denies the charges.</p>
+                <div class="story-footer">
+                    <time>Tue, 22 Sep 2026 17:37:28 -0400</time>
+                    <div><span class="tag">Technology</span></div>
+                </div>
+            </article>
+        
+            <article class="story" data-source="NPR">
+                <div class="story-meta">
+                    <span>United States</span>
+                    <span>NPR</span>
+                </div>
+                <h2><a href="https://www.npr.org/2026/09/22/nx-s1-5977768/trump-tv-media-ban-white-house" target="_blank" rel="noopener noreferrer">White House launches &#x27;Trump TV&#x27; after ban on major news outlets</a></h2>
+                <p>Days after President Trump barred reporters from three major news outlets from the White House, the administration has launched a 24/7 YouTube channel promising to put its &quot;biggest moments all in one place.&quot;</p>
+                <div class="story-footer">
+                    <time>Tue, 22 Sep 2026 17:31:01 -0400</time>
+                    <div><span class="tag">Headline</span></div>
+                </div>
+            </article>
+        
+            <article class="story" data-source="CBC News">
+                <div class="story-meta">
+                    <span>Canada</span>
+                    <span>CBC News</span>
+                </div>
+                <h2><a href="https://www.cbc.ca/news/world/trump-un-general-assembly-speech-9.7353658?cmp=rss" target="_blank" rel="noopener noreferrer">Trump flexes &#x27;American power&#x27; on UN&#x27;s biggest stage</a></h2>
+                <p>U.S. President Donald Trump is vowing to keep using military power to advance his country&#x27;s interests, including to stop what he calls &quot;hostile foreign adversaries&quot; from gaining influence in the Western Hemisphere.</p>
+                <div class="story-footer">
+                    <time>Tue, 22 Sep 2026 17:51:14 EDT</time>
+                    <div><span class="tag">Technology</span></div>
+                </div>
+            </article>
+        
+            <article class="story" data-source="CBC News">
+                <div class="story-meta">
+                    <span>Canada</span>
+                    <span>CBC News</span>
+                </div>
+                <h2><a href="https://www.cbc.ca/player/play/9.7354122?cmp=rss" target="_blank" rel="noopener noreferrer">Fact check: Could Trump replace Canada&#x27;s potash with Belarus?</a></h2>
+                <p>Canada produces more potash than any other country in the world, all from 10 active mines in Saskatchewan. U.S. President Donald Trump says he&#x27;s working on a deal to buy potash from Belarus at a cheaper price. But could Belarus replace our supply? Here are the facts.</p>
+                <div class="story-footer">
+                    <time>Tue, 22 Sep 2026 15:57:36 EDT</time>
+                    <div><span class="tag">Headline</span></div>
+                </div>
+            </article>
+        
+            <article class="story" data-source="CBC News">
+                <div class="story-meta">
+                    <span>Canada</span>
+                    <span>CBC News</span>
+                </div>
+                <h2><a href="https://www.cbc.ca/news/world/as-trump-and-zelenskyy-talk-about-potential-energy-truce-russia-and-ukraine-unleash-new-wave-of-strikes-9.7353459?cmp=rss" target="_blank" rel="noopener noreferrer">As Trump and Zelenskyy talk about potential energy truce, Russia and Ukraine unleash new wave of strikes</a></h2>
+                <p>Ukraine and Russia traded fresh strikes on their respective energy infrastructure overnight, underscoring the gap between the high-level talk of an energy ceasefire in the ongoing war and the reality on the ground.</p>
+                <div class="story-footer">
+                    <time>Tue, 22 Sep 2026 10:44:12 EDT</time>
+                    <div><span class="tag">Technology</span></div>
+                </div>
+            </article>
+        
+            <article class="story" data-source="El Economista">
+                <div class="story-meta">
+                    <span>Mexico</span>
+                    <span>El Economista</span>
+                </div>
+                <h2><a href="https://www.eleconomista.com.mx/finanzaspersonales/fraudes-financieros-9-mexicanos-confian-reconocerlos-6-terminan-siendo-victimas-20260922-834762.html" target="_blank" rel="noopener noreferrer">Fraudes financieros: de cada 9 mexicanos que confían reconocerlos, 6 terminan siendo víctimas</a></h2>
+                <p>En México, 6 de cada 9 personas que creen poder detectar fraudes financieros terminan siendo víctimas. Descubre por qué ocurre, cómo identificar riesgos y las mejores prácticas para prevenir estafas bancarias, según datos de Banco Azteca y Condusef.</p>
+                <div class="story-footer">
+                    <time>Tue, 22 Sep 2026 16:00:00 -0600</time>
+                    <div><span class="tag">Headline</span></div>
+                </div>
+            </article>
+        
+            <article class="story" data-source="El Economista">
+                <div class="story-meta">
+                    <span>Mexico</span>
+                    <span>El Economista</span>
+                </div>
+                <h2><a href="https://www.eleconomista.com.mx/mercados/bolsa-mexicana-avanza-segundo-dia-consecutivo-tocar-peor-nivel-ano-20260922-834774.html" target="_blank" rel="noopener noreferrer">Bolsa mexicana avanza por segundo día consecutivo tras tocar su peor nivel en el año</a></h2>
+                <p>Los índices locales subieron por segunda sesión consecutiva, extendiendo un rebote desde los nuevos mínimos del año alcanzados en la jornada del lunes.</p>
+                <div class="story-footer">
+                    <time>Tue, 22 Sep 2026 15:59:49 -0600</time>
+                    <div><span class="tag">Headline</span></div>
+                </div>
+            </article>
+        
+            <article class="story" data-source="El Economista">
+                <div class="story-meta">
+                    <span>Mexico</span>
+                    <span>El Economista</span>
+                </div>
+                <h2><a href="https://www.eleconomista.com.mx/sectorfinanciero/home-runs-banamex-celebra-30-anos-apoyo-organizaciones-sociedad-civil-20260922-834771.html" target="_blank" rel="noopener noreferrer">&quot;Home Runs Banamex&quot; celebra 30 años de apoyo a organizaciones de la sociedad civil</a></h2>
+                <p>Los recursos se destinan a proyectos que desarrollen temas relacionados con fomento al deporte, medio ambiente, salud, bienestar social, educación, cultura y proyectos productivos, previa evaluación y selección.</p>
+                <div class="story-footer">
+                    <time>Tue, 22 Sep 2026 15:49:29 -0600</time>
+                    <div><span class="tag">Headline</span></div>
+                </div>
+            </article>
+        
+            <article class="story" data-source="Deutsche Welle">
+                <div class="story-meta">
+                    <span>Germany</span>
+                    <span>Deutsche Welle</span>
+                </div>
+                <h2><a href="https://www.dw.com/en/military-aircraft-crashes-near-us-air-base-in-spangdahlem-germany/a-79376025?maca=en-rss-en-world-4025-xml-mrss" target="_blank" rel="noopener noreferrer">Military aircraft crashes near US air base in Spangdahlem, Germany</a></h2>
+                <p>The F-16 pilot was able to safely eject from the plane and was taken to receive medical care. The incident occurred near Spangdahlem Air Base in the German state of Rhineland-Palatinate.</p>
+                <div class="story-footer">
+                    <time>Tue, 22 Sep 2026 14:12:00 GMT</time>
+                    <div><span class="tag">Technology</span> <span class="tag">Health</span></div>
+                </div>
+            </article>
+        
+            <article class="story" data-source="Deutsche Welle">
+                <div class="story-meta">
+                    <span>Germany</span>
+                    <span>Deutsche Welle</span>
+                </div>
+                <h2><a href="https://www.dw.com/en/us-china-ai-race-does-trump-want-to-regulate-ai-by-forming-a-new-task-force-and-a-special-envoy-for-artificial-intelligence-in-the-us/a-79372591?maca=en-rss-en-world-4025-xml-mrss" target="_blank" rel="noopener noreferrer">US-China AI race: Does Trump want to regulate AI by forming a new task force and a special envoy for artificial intelligence in the US?</a></h2>
+                <p>Do Trump&#x27;s task force and a special envoy for artificial intelligence in the US indicate a move toward regulating this disputed technology, particularly vis-a-vis China?</p>
+                <div class="story-footer">
+                    <time>Tue, 22 Sep 2026 14:04:00 GMT</time>
+                    <div><span class="tag">Technology</span></div>
+                </div>
+            </article>
+        
+            <article class="story" data-source="Deutsche Welle">
+                <div class="story-meta">
+                    <span>Germany</span>
+                    <span>Deutsche Welle</span>
+                </div>
+                <h2><a href="https://www.dw.com/en/after-floods-nepal-minister-demands-climate-justice/a-79372239?maca=en-rss-en-world-4025-xml-mrss" target="_blank" rel="noopener noreferrer">After floods, Nepal minister demands &#x27;climate justice&#x27;</a></h2>
+                <p>With Nepal still reeling from the devastating floods in August, Kathmandu is calling for climate justice and seeking compensation from the UN-backed Loss and Damage Fund, Environment Minister Geeta Chaudhary told DW.</p>
+                <div class="story-footer">
+                    <time>Tue, 22 Sep 2026 12:37:00 GMT</time>
+                    <div><span class="tag">Headline</span></div>
+                </div>
+            </article>
+        
+            <article class="story" data-source="France 24">
+                <div class="story-meta">
+                    <span>France</span>
+                    <span>France 24</span>
+                </div>
+                <h2><a href="https://www.france24.com/en/europe/20260922-zelensky-says-ukraine-is-ready-for-an-energy-ceasefire-with-russia" target="_blank" rel="noopener noreferrer">Zelensky says Ukraine is ready for an energy ceasefire with Russia</a></h2>
+                <p>On the sidelines of the UN General Assembly in New York on Tuesday, Ukraine&#x27;s President Volodymyr Zelensky told journalists that Kyiv is ready to halt strikes on Russian energy infrastructure if Moscow does the same, with hopes to end the war before winter.</p>
+                <div class="story-footer">
+                    <time>Tue, 22 Sep 2026 21:38:04 GMT</time>
+                    <div><span class="tag">Technology</span></div>
+                </div>
+            </article>
+        
+            <article class="story" data-source="France 24">
+                <div class="story-meta">
+                    <span>France</span>
+                    <span>France 24</span>
+                </div>
+                <h2><a href="https://www.france24.com/en/americas/20260922-un-secretary-general-guterres-calls-for-interdependence-in-final-general-assembly-address" target="_blank" rel="noopener noreferrer">Guterres pleads for &#x27;world built on interdependence&#x27; in final General Assembly address</a></h2>
+                <p>UN Secretary-General Antonio Guterres pleaded for “a world built on interdependence” Tuesday as he made his final address to the annual gathering of world leaders convening to face a formidable menu of challenges, from climate change and war to inequality and the rise of artificial intelligence.</p>
+                <div class="story-footer">
+                    <time>Tue, 22 Sep 2026 21:02:47 GMT</time>
+                    <div><span class="tag">Technology</span></div>
+                </div>
+            </article>
+        
+            <article class="story" data-source="France 24">
+                <div class="story-meta">
+                    <span>France</span>
+                    <span>France 24</span>
+                </div>
+                <h2><a href="https://www.france24.com/en/tv-shows/business/20260922-french-government-scales-up-targeted-fuel-price-relief" target="_blank" rel="noopener noreferrer">French government scales up targeted fuel price relief</a></h2>
+                <p>Under pressure to help businesses and workers cope with soaring fuel prices, the French government has announced it will expand targeted energy relief for those most affected. The new measures will cost €450 million, bringing the total so far to €1.4 billion. Meanwhile, as French president Emmanuel Macron calls for allowing more biofuels to be added to diesel, we speak with an expert on the potential environmental impact of a rapid ramp-up in biofuel use.</p>
+                <div class="story-footer">
+                    <time>Tue, 22 Sep 2026 20:54:51 GMT</time>
+                    <div><span class="tag">Headline</span></div>
+                </div>
+            </article>
+        
+            <article class="story" data-source="ANSA English">
+                <div class="story-meta">
+                    <span>Italy</span>
+                    <span>ANSA English</span>
+                </div>
+                <h2><a href="https://www.ansa.it/canale_scienza/notizie/spazio_astronomia/2026/09/22/primi-segnali-radio-da-un-pianeta-alieno-ma-non-li-ha-inviati-et_c31249cf-a1eb-47ad-8cae-de11bff40eaf.html" target="_blank" rel="noopener noreferrer">Primi segnali radio da un pianeta alieno, ma non li ha inviati ET</a></h2>
+                <p>Sono generati dalle aurore che illuminano il cielo di Beta Pictoris b,lontano 63 anni luce</p>
+                <div class="story-footer">
+                    <time>Tue, 22 Sep 2026 18:09:39 +0200</time>
+                    <div><span class="tag">Headline</span></div>
+                </div>
+            </article>
+        
+            <article class="story" data-source="ANSA English">
+                <div class="story-meta">
+                    <span>Italy</span>
+                    <span>ANSA English</span>
+                </div>
+                <h2><a href="https://www.ansa.it/canale_tecnologia/notizie/cybersecurity/2026/09/22/enisa-ransomware-minaccia-cyber-con-il-maggiore-impatto-a-breve-termine-in-ue_01f72e48-b7b4-429b-96b3-2d090bf8cc2b.html" target="_blank" rel="noopener noreferrer">Il ransomware minaccia cyber con il maggiore impatto in Ue</a></h2>
+                <p>Report Enisa, &#x27;il 57% degli incidenti motivato da ragioni ideologiche&#x27;</p>
+                <div class="story-footer">
+                    <time>Tue, 22 Sep 2026 15:51:03 +0200</time>
+                    <div><span class="tag">Technology</span></div>
+                </div>
+            </article>
+        
+            <article class="story" data-source="ANSA English">
+                <div class="story-meta">
+                    <span>Italy</span>
+                    <span>ANSA English</span>
+                </div>
+                <h2><a href="https://www.ansa.it/canale_saluteebenessere/notizie/sanita/2026/09/21/tumori-curare-un-figlio-lontano-da-casa-costa-fino-a-35mila-euro_e5f73627-ae0f-45a5-87fc-27bc5e3caf20.html" target="_blank" rel="noopener noreferrer">Tumori, curare un figlio lontano da casa costa fino a 35mila euro</a></h2>
+                <p>Peter Pan Odv: &quot;Almeno uno dei genitori deve abbandonare o ridurre il proprio lavoro&quot;</p>
+                <div class="story-footer">
+                    <time>Tue, 22 Sep 2026 10:11:41 +0200</time>
+                    <div><span class="tag">Headline</span></div>
+                </div>
+            </article>
+        
+            <article class="story" data-source="SABC News">
+                <div class="story-meta">
+                    <span>South Africa</span>
+                    <span>SABC News</span>
+                </div>
+                <h2><a href="https://www.sabcnews.com/sabcnews/un-general-assembly-opens-amid-competing-visions-of-global-order/" target="_blank" rel="noopener noreferrer">UN General Assembly opens amid competing visions of global order</a></h2>
+                <p>The United Nations General Assembly has opened its annual debate.</p>
+                <div class="story-footer">
+                    <time>Tue, 22 Sep 2026 20:03:54 +0000</time>
+                    <div><span class="tag">Headline</span></div>
+                </div>
+            </article>
+        
+            <article class="story" data-source="SABC News">
+                <div class="story-meta">
+                    <span>South Africa</span>
+                    <span>SABC News</span>
+                </div>
+                <h2><a href="https://www.sabcnews.com/sabcnews/1162961-2/" target="_blank" rel="noopener noreferrer">Majavu explains the legal hurdles facing Sibiya’s bail application</a></h2>
+                <p>Sibiya was transferred to Kgosi Mampuru Prison due to interference with witnesses.</p>
+                <div class="story-footer">
+                    <time>Tue, 22 Sep 2026 19:52:35 +0000</time>
+                    <div><span class="tag">Technology</span></div>
+                </div>
+            </article>
+        
+            <article class="story" data-source="SABC News">
+                <div class="story-meta">
+                    <span>South Africa</span>
+                    <span>SABC News</span>
+                </div>
+                <h2><a href="https://www.sabcnews.com/sabcnews/us-expands-its-prosecution-of-2021-assassination-of-haitis-president/" target="_blank" rel="noopener noreferrer">US expands its prosecution of 2021 assassination of Haiti’s president</a></h2>
+                <p>A dozen people have previously pleaded guilty in US court proceedings related to the assassination</p>
+                <div class="story-footer">
+                    <time>Tue, 22 Sep 2026 19:25:12 +0000</time>
+                    <div><span class="tag">Technology</span></div>
+                </div>
+            </article>
+        
+            <article class="story" data-source="NAN">
+                <div class="story-meta">
+                    <span>Nigeria</span>
+                    <span>NAN</span>
+                </div>
+                <h2><a href="https://nannews.ng/nan-press-week-promotes-cultural-diversity-heritage/" target="_blank" rel="noopener noreferrer">NAN Press Week promotes cultural diversity, heritage</a></h2>
+                <p>NAN Press Week promotes cultural diversity, heritage By Glory Akpan The Nigerian Union of Journalists, News Agency of Nigeria Chapel (NUJ–NAN) has celebrated its 26th Press Week with a Cultural Day to promote Nigeria’s cultural diversity, heritage and national unity. The event, which featured cultural displays, including traditional attire, music, dancing and Nigerian dishes News Agency of Nigeria</p>
+                <div class="story-footer">
+                    <time>Tue, 22 Sep 2026 21:03:45 +0000</time>
+                    <div><span class="tag">Headline</span></div>
+                </div>
+            </article>
+        
+            <article class="story" data-source="NAN">
+                <div class="story-meta">
+                    <span>Nigeria</span>
+                    <span>NAN</span>
+                </div>
+                <h2><a href="https://nannews.ng/ayuba-kuti-urge-nigerian-youths-to-embrace-cultural-heritage/" target="_blank" rel="noopener noreferrer">Ayuba, Kuti urge Nigerian youths to embrace cultural heritage</a></h2>
+                <p>Ayuba, Kuti urge Nigerian youths to embrace cultural heritage By Glory Akpan/Hawwah Abdurofiu Fuji musician, Dr Adewale Ayuba, and cultural advocate, Omoyeni Kuti, have urged Nigerian youths to embrace their cultural heritage and promote the country’s identity globally. They made the call at the 2026 Nigerian Union of Journalists, News Agency of Nigeria (NUJ–NAN) Press Week Cultural News Agency of Nigeria</p>
+                <div class="story-footer">
+                    <time>Tue, 22 Sep 2026 19:55:58 +0000</time>
+                    <div><span class="tag">Headline</span></div>
+                </div>
+            </article>
+        
+            <article class="story" data-source="NAN">
+                <div class="story-meta">
+                    <span>Nigeria</span>
+                    <span>NAN</span>
+                </div>
+                <h2><a href="https://nannews.ng/financial-literacy-jan-prudential-zenith-unveil-2026-cha-ching-programme-for-children/" target="_blank" rel="noopener noreferrer">Financial Literacy: JAN, Prudential Zenith unveil 2026 Cha-Ching programme for children</a></h2>
+                <p>Financial Literacy: JAN, Prudential Zenith unveil 2026 Cha-Ching programme for children By Millicent Ifeanyichukwu Junior Achievement Nigeria (JAN), in partnership with Prudential Zenith Life Insurance and Prudence Foundation, has unveiled the 2026 edition of the Cha-Ching Financial Literacy Programme. The programme is to equip children aged eight to 12 years with practical money management skills, according to a statement by the News Agency of Nigeria</p>
+                <div class="story-footer">
+                    <time>Tue, 22 Sep 2026 19:45:50 +0000</time>
+                    <div><span class="tag">Headline</span></div>
+                </div>
+            </article>
+        
+            <article class="story" data-source="SBS News">
+                <div class="story-meta">
+                    <span>Australia</span>
+                    <span>SBS News</span>
+                </div>
+                <h2><a href="https://www.sbs.com.au/news/article/meta-touted-teen-safety-tool-barely-anyone-using-it/brm5k3tng" target="_blank" rel="noopener noreferrer">Meta touted its teen safety tool. What it didn&#x27;t mention was that barely anyone was using it</a></h2>
+                <p>Out of a user base of more than 3 billion, fewer than 1 per cent had</p>
+                <div class="story-footer">
+                    <time>Wed, 26 Aug 2026 02:04:02 +0000</time>
+                    <div><span class="tag">Headline</span></div>
+                </div>
+            </article>
+        
+            <article class="story" data-source="SBS News">
+                <div class="story-meta">
+                    <span>Australia</span>
+                    <span>SBS News</span>
+                </div>
+                <h2><a href="https://www.sbs.com.au/news/article/dolly-parton-life-in-pictures/oyicxx2mn" target="_blank" rel="noopener noreferrer">The Queen of Country: Dolly Parton&#x27;s life in pictures</a></h2>
+                <p>Parton is remembered by fans as a singular songwriting talent, a prolific artist, and shrewd, trailblazing businesswoman.</p>
+                <div class="story-footer">
+                    <time>Wed, 26 Aug 2026 00:13:30 +0000</time>
+                    <div><span class="tag">Technology</span></div>
+                </div>
+            </article>
+        
+            <article class="story" data-source="SBS News">
+                <div class="story-meta">
+                    <span>Australia</span>
+                    <span>SBS News</span>
+                </div>
+                <h2><a href="https://www.sbs.com.au/news/article/trump-lake-america-ontario-canada-trade-war-tariffs/o7udweihr" target="_blank" rel="noopener noreferrer">Trump threatens to rename Lake Ontario as Canada hits back at US tariffs</a></h2>
+                <p>Prime Minister Mark Carney says Canada won&#x27;t be subordinated as 50 per cent US tariffs trigger a CAD$5.4 billion ($5.4 billion) aid package.</p>
+                <div class="story-footer">
+                    <time>Tue, 25 Aug 2026 20:52:46 +0000</time>
+                    <div><span class="tag">Technology</span></div>
+                </div>
+            </article>
+        
+            <article class="story" data-source="BBC News World">
+                <div class="story-meta">
+                    <span>Global Baseline</span>
+                    <span>BBC News World</span>
+                </div>
+                <h2><a href="https://www.bbc.co.uk/news/articles/c52e0ywl9pr7o?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer">Trump tells UN he has &#x27;big decision&#x27; on whether to &#x27;annihilate&#x27; Iran or make peace deal</a></h2>
+                <p>His tone contrasted with remarks earlier from UN Secretary General António Guterres, who warned global divisions were deepening.</p>
+                <div class="story-footer">
+                    <time>Tue, 22 Sep 2026 21:50:31 GMT</time>
+                    <div><span class="tag">Headline</span></div>
+                </div>
+            </article>
+        
+            <article class="story" data-source="BBC News World">
+                <div class="story-meta">
+                    <span>Global Baseline</span>
+                    <span>BBC News World</span>
+                </div>
+                <h2><a href="https://www.bbc.co.uk/news/articles/cqevwpmvpekeo?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer">Burnham expects to find &#x27;common ground&#x27; with Trump in first meeting</a></h2>
+                <p>In New York, the prime minister will also deliver a speech to the UN General Assembly expected to be focused on AI.</p>
+                <div class="story-footer">
+                    <time>Tue, 22 Sep 2026 06:03:22 GMT</time>
+                    <div><span class="tag">Technology</span></div>
+                </div>
+            </article>
+        
+            <article class="story" data-source="BBC News World">
+                <div class="story-meta">
+                    <span>Global Baseline</span>
+                    <span>BBC News World</span>
+                </div>
+                <h2><a href="https://www.bbc.co.uk/news/articles/c9dr74g32g8go?at_medium=RSS&amp;at_campaign=rss" target="_blank" rel="noopener noreferrer">US to build two military bases in Greenland under new deal with Denmark</a></h2>
+                <p>The defence deal signed at the UN General Assembly also re-affirms Denmark&#x27;s sovereignty over its semi-autonomous Arctic territory.</p>
+                <div class="story-footer">
+                    <time>Tue, 22 Sep 2026 21:36:55 GMT</time>
+                    <div><span class="tag">Headline</span></div>
+                </div>
+            </article>
+        
+        </section>
+    </main>
+    <script>
+        const filter = document.getElementById('source-filter');
+        const stories = [...document.querySelectorAll('.story')];
+        const count = document.getElementById('visible-count');
+        filter.addEventListener('change', () => {
+            const selected = filter.value;
+            let visible = 0;
+            stories.forEach((story) => {
+                const show = selected === 'all' || story.dataset.source === selected;
+                story.hidden = !show;
+                if (show) visible += 1;
+            });
+            count.textContent = `Showing ${visible} stories`;
+        });
+    </script>
+</body>
+</html>
