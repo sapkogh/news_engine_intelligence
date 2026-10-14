@@ -1,17 +1,15 @@
 import feedparser
 import json
 import time
+import urllib.parse
 import urllib.request
 from urllib.request import Request, urlopen
-from datetime import datetime
+from datetime import datetime, timezone
 import html
+import re
 
 # Dictionary mapping country and source metadata to the standardized RSS endpoints
 NEWS_FEEDS = {
-    "India": {
-        "source": "DD News",
-        "url": "https://ddnews.gov.in/en/feed/"
-    },
     "Japan": {
         "source": "NHK World-Japan",
         "url": "https://www3.nhk.or.jp/rj/podcast/rss/english.xml"
@@ -22,7 +20,7 @@ NEWS_FEEDS = {
     },
     "China": {
         "source": "Xinhua News Agency",
-        "url": "http://www.xinhuanet.com/english/rss/index.htm"
+        "url": "https://english.news.cn/rss/worldrss.xml"
     },
     "United States": {
         "source": "NPR",
@@ -45,8 +43,8 @@ NEWS_FEEDS = {
         "url": "https://www.france24.com/en/rss"
     },
     "Switzerland": {
-        "source": "SWI swissinfo.ch",
-        "url": "https://www.swissinfo.ch/eng/topic/swiss-politics/rss"
+        "source": "The Local Switzerland",
+        "url": "https://feeds.thelocal.com/rss/ch"
     },
     "Italy": {
         "source": "ANSA English",
@@ -62,7 +60,7 @@ NEWS_FEEDS = {
     },
     "Congo/Central Africa": {
         "source": "AllAfrica",
-        "url": "https://allafrica.com/misc/tools/rss.html"
+        "url": "https://allafrica.com/tools/headlines/rdf/centralafrica/headlines.rdf"
     },
     "Australia": {
         "source": "SBS News",
@@ -87,11 +85,22 @@ def determine_category(title, summary):
     
     matched_categories = []
     for category, keywords in CATEGORIES.items():
-        if any(keyword in combined_text for keyword in keywords):
+        # Match whole words only, so "ai" does not match "said" or "Taiwan"
+        if any(re.search(rf"\b{re.escape(keyword)}\b", combined_text) for keyword in keywords):
             matched_categories.append(category)
             
     # Default to Headline news if no specialized keywords match
     return matched_categories if matched_categories else ["Headline"]
+
+def utc_now_str():
+    return datetime.now(timezone.utc).strftime("%Y-%m-%d %H:%M:%S")
+
+
+def safe_link(url):
+    """Allow only http(s) links in the report; anything else becomes '#'."""
+    url = (url or "").strip()
+    return url if urllib.parse.urlsplit(url).scheme.lower() in ("http", "https") else "#"
+
 
 def fetch_feed(country, info):
     """Fetch a feed with a browser-like user agent and bounded wait."""
@@ -158,7 +167,7 @@ def parse_all_feeds(max_articles_per_feed=5):
                 title = getattr(entry, "title", "No Title Available")
                 link = getattr(entry, "link", "#")
                 summary = get_full_content(entry)
-                published = getattr(entry, "published", datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S"))
+                published = getattr(entry, "published", utc_now_str())
                 
                 # Assign thematic tags programmatically
                 tags = determine_category(title, summary)
@@ -171,7 +180,7 @@ def parse_all_feeds(max_articles_per_feed=5):
                     "summary": summary,
                     "published_raw": published,
                     "categories": tags,
-                    "processed_at": datetime.utcnow().strftime("%Y-%m-%d %H:%M:%S")
+                    "processed_at": utc_now_str()
                 }
                 
                 aggregated_news.append(article_data)
@@ -203,7 +212,7 @@ def generate_html_report(articles, output_path="global_news_manifest.html"):
                     <span>{html.escape(article.get('country', 'Unknown'))}</span>
                     <span>{html.escape(article.get('source', 'Unknown source'))}</span>
                 </div>
-                <h2><a href="{html.escape(article.get('link', '#'))}" target="_blank" rel="noopener noreferrer">{html.escape(article.get('title', 'Untitled'))}</a></h2>
+                <h2><a href="{html.escape(safe_link(article.get('link')))}" target="_blank" rel="noopener noreferrer">{html.escape(article.get('title', 'Untitled'))}</a></h2>
                 <p>{html.escape(article.get('summary', 'No summary available'))}</p>
                 <div class="story-footer">
                     <time>{html.escape(article.get('published_raw', 'Date unavailable'))}</time>
