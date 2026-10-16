@@ -19,8 +19,8 @@ NEWS_FEEDS = {
         "url": "https://en.yna.co.kr/RSS/news.xml"
     },
     "China": {
-        "source": "Xinhua News Agency",
-        "url": "https://english.news.cn/rss/worldrss.xml"
+        "source": "CGTN",
+        "url": "https://www.cgtn.com/subscribe/rss/section/china.xml"
     },
     "United States": {
         "source": "NPR",
@@ -64,7 +64,7 @@ NEWS_FEEDS = {
     },
     "Australia": {
         "source": "SBS News",
-        "url": "https://www.sbs.com.au/news/feed"
+        "url": "https://www.sbs.com.au/news/topic/latest/feed"
     },
     "Global Baseline": {
         "source": "BBC News World",
